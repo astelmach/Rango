@@ -40,6 +40,11 @@ INSTALLED_APPS = (
     'rango'
 )
 
+MEDIA_PATH = os.path.join(BASE_DIR, 'tango_with_django_project/media/')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = MEDIA_PATH
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,7 +61,7 @@ ROOT_URLCONF = 'tango_with_django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'tango_with_django_project/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,3 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+a,
+a:hover,
+a:visited,
+a:focus{
+	color: red;
+}
+
+body{
+	font-family: 'Open Sans Condensed';
+}
+
 #variableText{
 	color: green;
 	font-weight: bold;

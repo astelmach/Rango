@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 {% load staticfiles %}
-
 <html>
 	<head>
 	<title>Rango - About</title>
@@ -9,7 +7,7 @@
 	</head>
 
 <body>
-	<h1>Rango says here is the about page.</h1> <br />
+	<h1>Rango says here is the about page, {{ name }}.</h1> <br />
 	<a href="/rango/">Return Home</a><br />
 	<img src="{% static "img/rango2.png" %}"/>
 </body>

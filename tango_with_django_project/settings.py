@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'rango'
 )
 
+LOGIN_URL = '/rango/login/'
+
 MEDIA_PATH = os.path.join(BASE_DIR, 'tango_with_django_project/media/')
 
 MEDIA_URL = '/media/'

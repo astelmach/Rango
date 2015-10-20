@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 {% load staticfiles %}
-
 <html>
 	<head>
 		<title>Rango</title>
@@ -9,8 +7,41 @@
 	</head>
 
 	<body>
-		<h1>Rango says...</h1>
-		hello world! <span id="variableText">{{ boldmessage }}</span><br />
+		{% if user.is_authenticated %}
+			<a href="/rango/restricted/">Restricted Page, Oh My</a><br />
+			<a href="/rango/logout/">Logout</a><br />
+		{% else %}
+			<a href="/rango/login/">Login</a><br />
+			<a href="/rango/register/">Register</a><br />
+		{% endif %}
+
+		{% if user.is_authenticated %}
+		<h1>Rango says... "Hello, {{ user.username }}!"</h1>
+		{% else %}
+		<h1>Rango says... hello world!</h1>
+		{% endif %}
+		{% if categories %}
+		<h2>Top Categories:</h2>
+			<ol>
+				{% for category in categories %}
+				<li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+				{% endfor %}
+			</ol>
+		<h2>Top Pages:</h2>
+			{% if pages %}
+			<ol>
+				{% for page in pages %}
+					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endfor %}
+			</ol>
+			{% endif %}
+		{% else %}
+			<span class="important">There are no categories present.</span>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+		<a href="/rango/add_category/">Add a New Category</a><br />
+		{% endif %}
 		<a href="/rango/about/">About</a><br />
 		<img src="{% static "img/rango.png" %}" alt="picture of Rango"/>
 	</body>

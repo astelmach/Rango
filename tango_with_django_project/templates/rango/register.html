@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+	<title>Rango - Register</title>
+	<link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+	</head>
+<body>
+	<h1>Register with Rango</h1>
+	{% if registered %}
+		Rango says: <span class="important">"Thank you for registering!"</span><br />
+		<a href="/rango/">Return to the Homepage</a><br />
+		<img src="{% static "img/rango2.png" %}">
+	{% else %}
+		Rango says: <span class="important">"Register here!"</span>
+
+		<form id="user_form" method="POST" action="/rango/register/" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ user_form.as_p }}
+			{{ profile_form.as_p }}
+
+			<input type="submit" name="submit" value="Register!" />
+		</form>
+	{% endif %}
+</body>
+</html>
